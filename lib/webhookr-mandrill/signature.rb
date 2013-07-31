@@ -26,7 +26,7 @@ module Webhookr
         request.params.except(:action, :controller, :format).keys.sort.each do |key|
           data << key.to_s << request.params[key]
         end
-        Base64.encode64(OpenSSL::HMAC.digest(OpenSSL::Digest::Digest.new('sha1'), key, data))
+        Base64.encode64(OpenSSL::HMAC.digest(OpenSSL::Digest::Digest.new('sha1'), key, data)).rstrip
       end
     end
   end

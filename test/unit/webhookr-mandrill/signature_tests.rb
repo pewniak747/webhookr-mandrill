@@ -8,7 +8,7 @@ describe Webhookr::Mandrill::Signature do
       @request = OpenStruct.new(
         :url => "http://example.com",
         :params => {'c' => 'd', 'a' => 'b'},
-        :headers => { 'X-Mandrill-Signature' => "GZj1Db6JpZztD/8DcthPnT8iI7w=\n" }
+        :headers => { 'X-Mandrill-Signature' => "GZj1Db6JpZztD/8DcthPnT8iI7w=" }
       )
       @key = "abcdef"
       @subject = Webhookr::Mandrill::Signature.new(@request, @key)
