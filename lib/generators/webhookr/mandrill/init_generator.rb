@@ -14,9 +14,13 @@ module Webhookr
         end
 
         def plugin_initializer_text
-          "\nWebhookr::Mandrill::Adapter.config.security_token = '#{generate_security_token}'" +
-          "\n# Uncomment the next line to include your custom Mandrill handler\n" +
-          "# <-- Webhookr::Mandrill::Adapter.config.callback = your_custom_class --> \n"
+          <<-EOS
+Webhookr::Mandrill::Adapter.config.security_token = '#{generate_security_token}'
+# Uncomment the next line to include your custom Mandrill handler
+# Webhookr::Mandrill::Adapter.config.callback = your_custom_class
+# Uncomment the next line to use authentication with Mandrill key
+# Webhookr::Mandrill::Adapter.config.secret_token = 'your_secret_token'
+          EOS
         end
       end
     end

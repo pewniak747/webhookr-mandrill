@@ -18,6 +18,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   gem.add_dependency("webhookr")
+  gem.add_dependency("securecompare")
   gem.add_dependency("activesupport", [">= 3.1"])
 
 end

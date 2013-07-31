@@ -1,5 +1,6 @@
 require "webhookr"
 require "webhookr-mandrill/version"
+require "webhookr-mandrill/signature"
 require "webhookr/ostruct_utils"
 
 module Webhookr
@@ -13,6 +14,11 @@ module Webhookr
 
       def self.process(raw_response)
         new.process(raw_response)
+      end
+
+      def self.authenticated?(request)
+        key = config.secret_key
+        key.nil? || Webhookr::Mandrill::Signature(request, key).valid?
       end
 
       def process(raw_response)
