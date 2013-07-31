@@ -23,7 +23,7 @@ module Webhookr
 
       def generated_signature
         data = request.url
-        request.params.keys.sort.each do |key|
+        request.params.except(:action, :controller, :format).keys.sort.each do |key|
           data << key.to_s << request.params[key]
         end
         Base64.encode64(OpenSSL::HMAC.digest(OpenSSL::Digest::Digest.new('sha1'), key, data))
