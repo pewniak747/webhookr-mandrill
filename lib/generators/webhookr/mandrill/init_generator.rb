@@ -19,7 +19,7 @@ Webhookr::Mandrill::Adapter.config.security_token = '#{generate_security_token}'
 # Uncomment the next line to include your custom Mandrill handler
 # Webhookr::Mandrill::Adapter.config.callback = your_custom_class
 # Uncomment the next line to use authentication with Mandrill key
-# Webhookr::Mandrill::Adapter.config.secret_token = 'your_secret_token'
+# Webhookr::Mandrill::Adapter.config.secret_key = 'your_secret_key'
           EOS
         end
       end
